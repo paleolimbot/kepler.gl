@@ -35,6 +35,7 @@
     "./src/reducers",
     "./src/components",
     "./src/duckdb",
+    "./src/wherobotsdb",
     "./src/ai-assistant"
   ],
   "repository": {
