@@ -21,6 +21,7 @@ import {useSelector} from 'react-redux';
 import {ParsedConfig} from '@kepler.gl/types';
 import {getApplicationConfig} from '@kepler.gl/utils';
 import {SqlPanel} from '@kepler.gl/duckdb';
+import keplerGlDuckDBPlugin from '@kepler.gl/duckdb';
 import Banner from './components/banner';
 import Announcement, {FormLink} from './components/announcement';
 import {replaceLoadDataModal} from './factories/load-data-modal';
@@ -144,12 +145,17 @@ const App = props => {
   const {params: {id, provider} = {}, location: {query = {}} = {}} = props;
   const dispatch = useDispatch();
 
-  // TODO find another way to check for existence of duckDb plugin
-  const duckDbPluginEnabled = (getApplicationConfig().plugins || []).some(p => p.name === 'duckdb');
+  keplerGlDuckDBPlugin.init()
+  getApplicationConfig().plugins.push(keplerGlDuckDBPlugin)
 
-  const isSqlPanelOpen = useSelector(
-    state => duckDbPluginEnabled && state?.demo?.keplerGl?.map?.uiState.mapControls.sqlPanel?.active
-  );
+  // TODO find another way to check for existence of duckDb plugin
+  const duckDbPluginEnabled = true;
+
+
+  // const isSqlPanelOpen = useSelector(
+  //   state => duckDbPluginEnabled && state?.demo?.keplerGl?.map?.uiState.mapControls.sqlPanel?.active
+  // );
+  const isSqlPanelOpen = true;
   const prevQueryRef = useRef<number>(null);
 
   useEffect(() => {
