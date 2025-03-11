@@ -3691,6 +3691,7 @@ __metadata:
     apache-arrow: "npm:>=15.0.0"
     monaco-editor: "npm:^0.52.0"
     react-resizable-panels: "npm:^2.1.7"
+    wherobots-sql-driver: "npm:^0.4.2"
   languageName: unknown
   linkType: soft
 
@@ -20811,7 +20812,6 @@ __metadata:
     webpack-dev-server: "npm:^3.1.14"
     webpack-hot-middleware: "npm:^2.24.3"
     webpack-stats-plugin: "npm:^0.2.1"
-    wherobots-sql-driver: "npm:^0.4.2"
   peerDependencies:
     react: ">=18.2"
     react-dom: ">=18.2"
